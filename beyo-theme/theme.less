@@ -1,0 +1,157 @@
+//Theme by Sebastian Szwarc | http://twitter.com/Behinder
+
+// UI Scale
+@base-font-size: 16;
+/*@user-font-size: $USER_FONT_SIZE;*/
+@user-font-size: 19;
+@ui-scale: @user-font-size / @base-font-size;
+
+//Colors
+@tint-color: rgb(0, 122, 255);
+@selection-color: mix(yellow, @background-color, 40%);
+@invisibles-color: mix(@tint-color, @background-color, 70%);
+@pomaranczowy: rgb(139, 69, 19);
+@wtopiony: lighten(@background-color,20%);
+@background-color: #2A2B33;
+@text-color: white;
+
+// Base text
+@font-family: Menlo Regular;
+@line-height-multiple: 1.4;
+
+editor {
+  color: @text-color;
+  font-size: @user-font-size;
+  font-family: @font-family;
+  background-color: @background-color;
+  line-height-multiple: @line-height-multiple;
+
+  item-indent: 40px * @ui-scale;
+  caret-width: 4px;
+  caret-color: yellow;
+  drop-indicator-color: @tint-color;
+  invisibles-color: @invisibles-color;
+  selection-background-color: @selection-color;
+  guide-line-color: mix(@tint-color, @background-color, 10%);
+  message-color: mix(@text-color, @background-color, 50%);
+}
+
+sidebar {
+	search-item-prefix: "🔍 ";
+}
+
+/*Items-- main elements: Projects, note, tasks etc*/
+run[link] {
+  cursor: pointer;
+  color: @tint-color;
+}
+
+run[link^="button"] {
+  color: @text-color;
+}
+
+run[link^="filter"] {
+  color: @text-color;
+}
+
+item {
+  handle-color: mix(green, @background-color, 80%);
+}
+
+item[collapsed] {
+  handle-color: @tint-color;
+}
+/* Project settings */
+item[data-type="project"] {
+/*  font-weight: bold;*/
+	color:lighten(@pomaranczowy,20%);
+	font-size: @base-font-size*1.6;
+}
+
+item[depth=2][data-type=project] {
+	font-weight: bold;
+	font-size: @base-font-size*1.4;
+	color:lighten(@pomaranczowy,40%);
+
+}
+item[depth=3][data-type=project] {
+	font-weight: bold;
+	font-size: @base-font-size*1.3;
+	color:lighten(@pomaranczowy,40%);
+	
+}
+/* Task settings*/
+
+item[data-type=task] {
+  font-style: normal;
+	font-size:@base-font-size*1.3;
+}
+
+/*Note settings*/
+item[data-type=note] {
+  font-style: italic;
+	font-size:@base-font-size*1.1;
+	font-weight: bold;
+}
+
+/*Element in different states styling*/
+
+run[tag] {
+  font-size: @user-font-size*1.1;
+  font-style: normal;
+  font-weight: bold;
+  color: mix(@text-color, @background-color, 50%);
+}
+
+
+item[data-done] {
+  > run[display] {
+    text-strikethrough: NSUnderlineStyleDouble;
+    text-strikethrough-color: lighten(red,20%);
+		color: @wtopiony;
+  }
+}
+run[tag=data-done] {
+	color:@wtopiony;
+}
+
+
+run[tag=data-flag] {
+	color:yellow;
+	font-weight:bold;
+}
+item[data-today],run[tag=data-today] {
+	color:red;
+	font-weight:bold;
+}
+
+item[data-priority]{
+	font-weight:bold;
+/*	>run[tagvalue=1]{
+		color:red;
+
+	}
+	>run[tagvalue=2]{
+		color:yellow;
+	}
+	>run[tagvalue=3]{
+		color: lighten(green,30%);
+	}
+*/}
+item[data-priority="1"] {
+  > run[tag="data-priority"] {
+    color: red;
+  }
+}
+
+item[data-priority="2"] {
+  > run[tag="data-priority"] {
+    color: yellow;
+  }
+}
+
+item[data-priority="3"] {
+  > run[tag="data-priority"] {
+    color: lighten(green,30%);
+  }
+}
