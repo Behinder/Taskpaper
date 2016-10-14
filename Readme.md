@@ -8,7 +8,13 @@ Copy BeyoTheme.less to your local TP Stylesheets folder and set in TaskPaper men
 
 Old file 'theme.less' included for reference and compatibility with versions 3.0-3.4
 
-
-
-
 ![obrazek](https://raw.githubusercontent.com/Behinder/Taskpaper/master/beyo-theme/beyothemepreview.png)
+
+### Nova-Inspired ###
+
+My attempt to create a theme using colors from wonderfull
+[Nova](http://www.trevordmiller.com/nova/).
+
+![obrazek2](https://raw.githubusercontent.com/Behinder/Taskpaper/master/NovaInspired-theme/preview.png)
+
+

@@ -1,0 +1,138 @@
+// Nova Theme for TaskPaper
+// Sebastian Szwarc
+// Inspired by http://www.trevordmiller.com/nova/
+//
+
+// Basic color definitions
+// use as fallback
+//
+@cyan: #7FC1CA ;
+@blue: #83AFE5 ;
+@purple: #9A93E1;
+@pink: #D18EC2;
+@red: #DF8C8C;
+@orange: #F2C38F;
+@yellow: #DADA93;
+@green: #A8CE93;
+//---
+// Grays color definitions
+//
+@gray0: #1E272C;
+@gray1: #3C4C55;
+@gray2: #556873;
+@gray3: #6A7D89;
+@gray4: #899BA6;
+@gray5: #C5D4DD;
+@gray6: #E6EEF3;
+
+
+// Nova color definitions as on website
+
+@valuestate: #74B9C3;
+@identifier: #78A6E1;
+@global: #8F88DD;
+@emphasis: #CB83BA;
+@actionneeded: #DB8181;
+@special: #F0BB84;
+@statement: #D5D588;
+@type: #9EC788;
+@decoration: #1C2327;
+@decmedium: #5F727E;
+@declight: #4B5D68;
+@defblack: #35434B;
+@decwhite: #E2EBF1;
+@trivial: #7E909C;
+@defaulttext: #BDCED8;
+
+// TaskPaper theme settings
+
+@background-color: @defblack;
+@text-color: @defaulttext;
+
+editor {
+    background-color: @background-color;
+    color:@text-color;
+    caret-color: @decwhite;
+    caret-width: 3px;
+    selection-background-color: @decwhite;
+    line-height-multiple: 1.6;
+
+}
+sidebar {
+    search-item-prefix: "🔍 ";
+}
+searchbar {
+    background-color: @gray6;
+    color: @gray1;
+    error-text-color: @red;
+}
+
+/*Items-- main elements: Projects, note, tasks etc*/
+
+
+item {
+    handle-color: @decmedium;
+
+}
+
+item[collapsed] {
+    handle-color: @cyan;
+}
+item[data-type="project"] {
+    font-weight: bold;
+    font-size: @base-font-size*1.3;
+
+}
+
+
+/* Project settings */
+item[depth=2][data-type=project] {
+    font-weight: bold;
+    font-size: @base-font-size*1.25;
+    color:@type;
+
+}
+
+
+/* Task settings*/
+item[data-type=task] {
+  font-style: normal;
+    font-size:@base-font-size*1.2;
+}
+/*Note settings*/
+item[data-type=note] {
+  font-style: italic;
+    font-size:@base-font-size*1.0;
+    // font-weight: bold;
+}
+/*Element in different states styling*/
+
+run[tag=data-today] {
+    color: @actionneeded;
+    }
+
+item[data-today] {
+color: @actionneeded;
+font-weight:bold;
+    }
+
+run[tag=data-flag] {
+    color: @special;
+}
+item[data-flag] {
+    color: @special;
+    font-weight: bold;
+
+}
+item[mouseOver] {
+    background-color: @text-color;
+    color: @background-color;
+}
+item[mouseOver][data-flag]{
+    background-color:@yellow;
+    color:@decwhite;
+}
+item[mouseOver][data-today]{
+    background-color: @actionneeded;
+    color:@decwhite;
+}
